@@ -9,3 +9,20 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model post {
+  id        Int      @id @default(autoincrement())
+  photoSrc  String
+  userName  String
+  createdAt DateTime
+}
+
+model user {
+  name      String @id
+  avatarSrc String
+}
+
+model likes {
+  postId   Int    @id
+  userName String
+}
